@@ -7,16 +7,17 @@
     --mainBorderColor-light:rgb(218, 218, 218);
     --mainBgColor-light:rgb(249, 250,251);
 
-    --mainTextColor-dark:#fff;
-    --secondaryTextColor-dark:#adb0b1;
+    --mainTextColor-dark:#fffbf5;
+    --secondaryTextColor-dark:#fffbf5;
     --mainLinkColor-dark:rgb(30, 190,214);
-    --mainBorderColor-dark:#2b3031;
-    --mainBgColor-dark:#131415;
-    --mainTextColor:#000;
-    --secondaryTextColor:(51 51 51);
-    --mainLinkColor:#0da2b8;
-    --mainBorderColor:rgb(218, 218, 218);
-    --mainBgColor:rgb(249, 250,251);
+    --mainBorderColor-dark:#6c6b69;
+    --mainBgColor-dark:#0a0a0a;
+
+    --mainTextColor:var(--mainTextColor-dark);
+    --secondaryTextColor:var(--mainTextColor-dark);
+    --mainLinkColor:var(--mainLinkColor-dark);
+    --mainBorderColor:var(--mainBorderColor-dark);
+    --mainBgColor:var(--mainBgColor-dark);
 }
 *{
     font-family: 'Readex Pro';
@@ -32,7 +33,20 @@ p, span, li{
     color: var(--secondaryTextColor);
     font-size: 1em;
 }
-
+ul{
+        list-style: none; /* Remove default bullets */
+}
+ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #91ff6a; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
+.date{
+    color: #91ff6a;
+}
 a{
     text-decoration: none;
     color: var(--mainLinkColor);
@@ -43,7 +57,7 @@ li{
     line-height: 1.9em;
 }
 #container--main{
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 1em;
 }
@@ -64,7 +78,7 @@ li{
 }
 
 #user-name{
-    font-size: 48px;
+    white-space: nowrap;    
     line-height: 1em;
 }
 
@@ -169,5 +183,27 @@ li{
     .card--work-history{
         border-left: none;
         padding-left: 0;
+    }
+}
+
+@media print, screen and (min-width: 64em){
+    h2 {
+        font-size: 3.75rem;
+    }
+}
+
+@media print, screen and (min-width: 40em){
+    h2 {
+        font-size: 3rem;
+    }
+}
+@media print, screen and (min-width: 64em){
+     h3 {
+        font-size: 2.5rem;
+    }
+}
+@media print, screen and (min-width: 40em){
+    h3 {
+        font-size: 2.2rem;
     }
 }
